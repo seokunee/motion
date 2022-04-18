@@ -1,0 +1,37 @@
+.image-modal {
+  width: 45%;
+  height: 25%;
+  background-color: #808080;
+  padding: 1rem;
+  border-radius: 10px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.del-btn-container {
+  text-align: right;
+}
+
+.add-btn-container {
+  text-align: right;
+}
+
+.image-modal__input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.gap {
+  margin-bottom: 0.5rem;
+}
+
+.image-modal_title,
+.image_modal_url {
+  color: white;
+  font-size: large;
+}
