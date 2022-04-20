@@ -2,9 +2,8 @@ class CreateImageComponent {
     constructor() {
         this.main = document.querySelector("main");
     }
-    beforeCreateImageComponent() {
+    createImageComponentMaker() {
         var _a;
-        console.log("3");
         const modal = document.createElement("div");
         modal.classList.add("image-modal");
         modal.innerHTML = `
@@ -21,39 +20,51 @@ class CreateImageComponent {
         <button class="image-modal__add-btn">Add</button>
       </div>
     `;
+        (_a = this.main) === null || _a === void 0 ? void 0 : _a.appendChild(modal);
+    }
+    addEventToCreateImageComponentMaker() {
+        const modal = document.querySelector(".image-modal");
         const deleteBnt = document.querySelector(".image-modal__delete-btn");
         const addBnt = document.querySelector(".image-modal__add-btn");
         const titleInput = document.querySelector(".image-modal__title-input");
         const urlInput = document.querySelector(".image-modal__url-input");
-        (_a = this.main) === null || _a === void 0 ? void 0 : _a.appendChild(modal);
         deleteBnt === null || deleteBnt === void 0 ? void 0 : deleteBnt.addEventListener("click", () => {
-            modal.remove();
+            console.log("delete!");
+            modal === null || modal === void 0 ? void 0 : modal.remove();
         });
         addBnt === null || addBnt === void 0 ? void 0 : addBnt.addEventListener("click", () => {
-            if ((urlInput === null || urlInput === void 0 ? void 0 : urlInput.innerText) && (titleInput === null || titleInput === void 0 ? void 0 : titleInput.innerText)) {
-                this.createImageComponent(urlInput === null || urlInput === void 0 ? void 0 : urlInput.innerText, titleInput === null || titleInput === void 0 ? void 0 : titleInput.innerText);
-                modal.remove();
+            if ((urlInput === null || urlInput === void 0 ? void 0 : urlInput.value) && (titleInput === null || titleInput === void 0 ? void 0 : titleInput.value)) {
+                this.createImageComponent(urlInput.value, titleInput.value);
+                modal === null || modal === void 0 ? void 0 : modal.remove();
             }
         });
     }
     createImageComponent(url, content) {
         var _a;
-        console.log("2");
         const container = document.createElement("div");
-        container.classList.add("container");
-        container.setAttribute("draggable", "true");
-        const imgElement = document.createElement("img");
-        imgElement.setAttribute("src", url);
-        const contentElement = document.createElement("div");
-        contentElement.innerHTML = content;
-        (_a = this.main) === null || _a === void 0 ? void 0 : _a.appendChild(imgElement);
+        // const delBtn = document.createElement("button");
+        // const delBtn : HTMLButtonElement | null;
+        container.classList.add("image-compo");
+        // delBtn.classList.add("image-compo__del-btn");
+        container.innerHTML = `
+    <img
+    class="image-compo__image"
+    src=${url}
+    alt="image"
+    />
+    <span class="image-compo__text">${content}</span>
+    <button class="image-compo__del-btn">X</button>
+    `;
+        // delBtn
+        // container.appendChild(delBtn);
+        (_a = this.main) === null || _a === void 0 ? void 0 : _a.appendChild(container);
     }
     setListeners() {
         const imageButton = document.querySelector(".image_btn");
         imageButton === null || imageButton === void 0 ? void 0 : imageButton.addEventListener("click", () => {
-            this.beforeCreateImageComponent();
+            this.createImageComponentMaker();
+            this.addEventToCreateImageComponentMaker();
         });
-        console.log("1");
     }
 }
 export default CreateImageComponent;

@@ -2,7 +2,8 @@ interface ICreateImageComponent {
   main: HTMLElement | null;
   createImageComponent(url: string, content: string): void;
   setListeners(): void;
-  beforeCreateImageComponent(): void;
+  createImageComponentMaker(): void;
+  addEventToCreateImageComponentMaker(): void;
 }
 
 class CreateImageComponent implements ICreateImageComponent {
@@ -12,9 +13,7 @@ class CreateImageComponent implements ICreateImageComponent {
     this.main = document.querySelector("main");
   }
 
-  beforeCreateImageComponent() {
-    console.log("3");
-
+  createImageComponentMaker() {
     const modal: HTMLDivElement = document.createElement("div");
     modal.classList.add("image-modal");
     modal.innerHTML = `
@@ -31,7 +30,12 @@ class CreateImageComponent implements ICreateImageComponent {
         <button class="image-modal__add-btn">Add</button>
       </div>
     `;
+    this.main?.appendChild(modal);
+  }
 
+  addEventToCreateImageComponentMaker() {
+    const modal: HTMLInputElement | null =
+      document.querySelector(".image-modal");
     const deleteBnt: HTMLButtonElement | null = document.querySelector(
       ".image-modal__delete-btn"
     );
@@ -44,39 +48,48 @@ class CreateImageComponent implements ICreateImageComponent {
     const urlInput: HTMLInputElement | null = document.querySelector(
       ".image-modal__url-input"
     );
-    this.main?.appendChild(modal);
     deleteBnt?.addEventListener("click", () => {
-      modal.remove();
+      console.log("delete!");
+      modal?.remove();
     });
     addBnt?.addEventListener("click", () => {
-      if (urlInput?.innerText && titleInput?.innerText) {
-        this.createImageComponent(urlInput?.innerText, titleInput?.innerText);
-        modal.remove();
+      if (urlInput?.value && titleInput?.value) {
+        this.createImageComponent(urlInput.value, titleInput.value);
+        modal?.remove();
       }
     });
   }
 
   createImageComponent(url: string, content: string) {
-    console.log("2");
-
     const container = document.createElement("div");
-    container.classList.add("container");
-    container.setAttribute("draggable", "true");
+    // const delBtn = document.createElement("button");
+    // const delBtn : HTMLButtonElement | null;
 
-    const imgElement = document.createElement("img");
-    imgElement.setAttribute("src", url);
-    const contentElement: HTMLDivElement = document.createElement("div");
-    contentElement.innerHTML = content;
-    this.main?.appendChild(imgElement);
+    container.classList.add("image-compo");
+    // delBtn.classList.add("image-compo__del-btn");
+
+    container.innerHTML = `
+    <img
+    class="image-compo__image"
+    src=${url}
+    alt="image"
+    />
+    <span class="image-compo__text">${content}</span>
+    <button class="image-compo__del-btn">X</button>
+    `;
+
+    // delBtn
+    // container.appendChild(delBtn);
+    this.main?.appendChild(container);
   }
 
   setListeners() {
     const imageButton: HTMLElement | null =
       document.querySelector(".image_btn");
     imageButton?.addEventListener("click", () => {
-      this.beforeCreateImageComponent();
+      this.createImageComponentMaker();
+      this.addEventToCreateImageComponentMaker();
     });
-    console.log("1");
   }
 }
 

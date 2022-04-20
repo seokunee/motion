@@ -1,0 +1,26 @@
+.image-compo {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 33%;
+  background-color: beige;
+  border-radius: 2rem;
+  margin-bottom: 2rem;
+}
+
+.image-compo__image {
+  width: 50%;
+  object-fit: cover;
+  border-radius: 2rem 0 0 2rem;
+}
+
+.image-compo__text {
+  width: 50%;
+  height: 100%;
+  padding: 1rem;
+}
+
+.image-compo__del-btn {
+  height: fit-content;
+  margin-right: 0.5rem;
+}
