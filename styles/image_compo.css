@@ -1,10 +1,10 @@
 .image-compo {
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 80%;
   height: 33%;
   background-color: beige;
-  border-radius: 2rem;
+  border-radius: 1rem;
   margin-bottom: 2rem;
 }
 
