@@ -52,7 +52,6 @@ class CreateImageComponentMaker {
           titleInput.value
         );
         imgaeComponent.createImageComponent();
-        imgaeComponent.setEventToImageComponent();
         modal?.remove();
       }
     });

@@ -3,7 +3,7 @@ class ImgaeComponent {
   private title: string;
   private url: string;
 
-  constructor(title: string, url: string) {
+  constructor(url: string, title: string) {
     this.main = document.querySelector(".main")! as HTMLElement;
     this.title = title;
     this.url = url;
@@ -11,7 +11,6 @@ class ImgaeComponent {
 
   createImageComponent() {
     const template = document.createElement("template");
-    this.main = document.querySelector(".main")! as HTMLElement;
     template.innerHTML = `
     <section class="image-compo">
     <img
@@ -23,35 +22,29 @@ class ImgaeComponent {
     `;
     const element = template.content.firstElementChild! as HTMLElement;
 
-    const imageComponent = element.querySelector(
-      ".image-compo"
-    )! as HTMLElement;
-
     const imageElement = element.querySelector(
       ".image-compo__image"
     )! as HTMLImageElement;
+
     imageElement.src = this.url;
     imageElement.alt = this.title;
 
     const titleSpan = element.querySelector(
       ".image-compo__text"
     )! as HTMLSpanElement;
+
     titleSpan.innerText = this.title;
 
     const clone = document.importNode(template.content, true);
-    this.main.appendChild(clone);
-  }
-
-  setEventToImageComponent() {
-    const delBtn = document.querySelector(
+    const delBtn = clone.querySelector(
       ".image-compo__del-btn"
     )! as HTMLButtonElement;
+    const imageComponent = clone.querySelector(".image-compo")! as HTMLElement;
 
-    console.log(delBtn);
-    delBtn.addEventListener("click", (e: MouseEvent) => {
-      const curTarget = e.target! as ChildNode;
-      this.main.removeChild(curTarget.parentElement as ParentNode);
+    delBtn.addEventListener("click", () => {
+      imageComponent.remove();
     });
+    this.main.appendChild(clone);
   }
 }
 
