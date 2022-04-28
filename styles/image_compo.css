@@ -9,13 +9,14 @@
 }
 
 .image-compo__image {
-  width: 50%;
+  width: 60%;
+  height: 100%;
   object-fit: cover;
-  border-radius: 2rem 0 0 2rem;
+  border-radius: 1rem 0 0 1rem;
 }
 
 .image-compo__text {
-  width: 50%;
+  width: 40%;
   height: 100%;
   padding: 1rem;
 }

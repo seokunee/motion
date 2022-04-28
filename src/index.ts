@@ -1,13 +1,12 @@
-import CreateImageComponentMaker from "./components/CreateImageComponentMaker.js";
-import { render } from "./test.js";
-import CreateNoteComponentMaker from "./components/CreateNoteComponentMaker.js";
+import CreateModal from "./components/CreateModal.js";
 export class App {
   constructor() {
     const imageBtn = document.querySelector(".image_btn")! as HTMLButtonElement;
-    const createImageMaker = new CreateImageComponentMaker();
+    const createModal = new CreateModal();
     imageBtn.addEventListener("click", () => {
-      createImageMaker.createImageComponentMaker();
-      createImageMaker.addEventToCreateImageComponentMaker();
+      createModal.createModal();
+      createModal.setTextandEvent("image");
+      console.log("1");
     });
   }
 }

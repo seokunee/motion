@@ -1,4 +1,4 @@
-.image-modal {
+.modal {
   width: 45%;
   height: 25%;
   background-color: #808080;
@@ -12,15 +12,15 @@
   margin: auto;
 }
 
-.del-btn-container {
+.modal__del-btn {
   text-align: right;
 }
 
-.add-btn-container {
+.modal__add-btn {
   text-align: right;
 }
 
-.image-modal__input-container {
+.modal__input-container {
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
@@ -30,8 +30,8 @@
   margin-bottom: 0.5rem;
 }
 
-.image-modal_title,
-.image_modal_url {
+.modal_title,
+.modal_contain {
   color: white;
   font-size: large;
 }
