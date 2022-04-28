@@ -1,11 +1,11 @@
-import ImgaeComponent from "./imageComponent.js";
-
+import ImageComponent from "./imageComponent.js";
+import VideoComponent from "./VideoComponent.js";
 class AddModalEvent {
   private addBtn: HTMLButtonElement;
   private modal: HTMLInputElement;
   private titleInput: HTMLInputElement;
   private deleteBnt: HTMLButtonElement;
-  private urlInput: HTMLInputElement;
+  private containInput: HTMLInputElement;
 
   constructor() {
     this.modal = document.querySelector(".modal")! as HTMLInputElement;
@@ -20,9 +20,10 @@ class AddModalEvent {
     this.titleInput = document.querySelector(
       ".modal__title-input"
     )! as HTMLInputElement;
-    this.urlInput = document.querySelector(
+    this.containInput = document.querySelector(
       ".modal__contain-input"
     )! as HTMLInputElement;
+
     this.deleteBnt.addEventListener("click", () => {
       this.modal.remove();
     });
@@ -30,12 +31,25 @@ class AddModalEvent {
 
   addImageComponentMakerEvent = () => {
     this.addBtn?.addEventListener("click", () => {
-      if (this.urlInput?.value && this.titleInput?.value) {
-        const imgaeComponent = new ImgaeComponent(
-          this.urlInput.value,
+      if (this.containInput?.value && this.titleInput?.value) {
+        const imageComponent = new ImageComponent(
+          this.containInput.value,
           this.titleInput.value
         );
-        imgaeComponent.createImageComponent();
+        imageComponent.createImageComponent();
+        this.modal?.remove();
+      }
+    });
+  };
+
+  addVideoComponentMakerEvent = () => {
+    this.addBtn?.addEventListener("click", () => {
+      if (this.containInput?.value && this.titleInput?.value) {
+        const videoComponent = new VideoComponent(
+          this.containInput.value,
+          this.titleInput.value
+        );
+        videoComponent.createvideoComponent();
         this.modal?.remove();
       }
     });

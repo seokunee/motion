@@ -1,4 +1,5 @@
 import AddModalEvent from "./AddModalEvent.js";
+
 type ButtonType = "note" | "image" | "video" | "todo";
 
 class CreateModal {
@@ -32,14 +33,16 @@ class CreateModal {
       ".modal_contain"
     )! as HTMLSpanElement;
 
+    const addEvent = new AddModalEvent();
+
     if (btnType == "note") {
-      containSpan.innerText = "URL";
+      containSpan.innerText = "BODY";
     } else if (btnType == "image") {
       containSpan.innerText = "URL";
-      const addEvent = new AddModalEvent();
       addEvent.addImageComponentMakerEvent();
     } else if (btnType == "video") {
-      containSpan.innerText = "BODY";
+      containSpan.innerText = "URL";
+      addEvent.addVideoComponentMakerEvent();
     } else if (btnType == "todo") {
       containSpan.innerText = "BODY";
     }
