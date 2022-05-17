@@ -1,7 +1,7 @@
 import ImageComponent from "./imageComponent.js";
 import VideoComponent from "./VideoComponent.js";
 import NoteComponent from "./NoteComponent.js";
-
+import TodoComponent from "./TodoComponent.js";
 class AddModalEvent {
   private addBtn: HTMLButtonElement;
   private modal: HTMLInputElement;
@@ -65,6 +65,19 @@ class AddModalEvent {
           this.titleInput.value
         );
         noteComponent.createNoteComponent();
+        this.modal?.remove();
+      }
+    });
+  };
+
+  addTodoComponentMakerEvent = () => {
+    this.addBtn?.addEventListener("click", () => {
+      if (this.containInput?.value && this.titleInput?.value) {
+        const todoComponent = new TodoComponent(
+          this.containInput.value,
+          this.titleInput.value
+        );
+        todoComponent.createTodoComponent();
         this.modal?.remove();
       }
     });

@@ -46,6 +46,7 @@ class CreateModal {
       addEvent.addVideoComponentMakerEvent();
     } else if (btnType == "todo") {
       containSpan.innerText = "BODY";
+      addEvent.addTodoComponentMakerEvent();
     }
   }
 }

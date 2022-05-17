@@ -25,6 +25,10 @@ export class App {
       this.createModal.createModal();
       this.createModal.setTextandEvent("note");
     });
+    this.todoBtn.addEventListener("click", () => {
+      this.createModal.createModal();
+      this.createModal.setTextandEvent("todo");
+    });
   }
 }
 
