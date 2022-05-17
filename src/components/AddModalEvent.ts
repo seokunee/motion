@@ -1,5 +1,7 @@
 import ImageComponent from "./imageComponent.js";
 import VideoComponent from "./VideoComponent.js";
+import NoteComponent from "./NoteComponent.js";
+
 class AddModalEvent {
   private addBtn: HTMLButtonElement;
   private modal: HTMLInputElement;
@@ -50,6 +52,19 @@ class AddModalEvent {
           this.titleInput.value
         );
         videoComponent.createvideoComponent();
+        this.modal?.remove();
+      }
+    });
+  };
+
+  addNoteComponentMakeEvent = () => {
+    this.addBtn?.addEventListener("click", () => {
+      if (this.containInput?.value && this.titleInput?.value) {
+        const noteComponent = new NoteComponent(
+          this.containInput.value,
+          this.titleInput.value
+        );
+        noteComponent.createNoteComponent();
         this.modal?.remove();
       }
     });

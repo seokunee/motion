@@ -21,6 +21,10 @@ export class App {
       this.createModal.createModal();
       this.createModal.setTextandEvent("video");
     });
+    this.noteBtn.addEventListener("click", () => {
+      this.createModal.createModal();
+      this.createModal.setTextandEvent("note");
+    });
   }
 }
 

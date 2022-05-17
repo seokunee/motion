@@ -12,34 +12,30 @@ class ImageComponent {
   createImageComponent() {
     const template = document.createElement("template");
     template.innerHTML = `
-    <section class="image-compo">
+    <section class="url-compo">
     <img
-    class="image-compo__image"
+    class="compo-src"
     />
-    <span class="image-compo__text"></span>
-    <button class="image-compo__del-btn">X</button>
+    <span class="compo__text"></span>
+    <button class="compo__del-btn">X</button>
     </section>
     `;
     const element = template.content.firstElementChild! as HTMLElement;
 
     const imageElement = element.querySelector(
-      ".image-compo__image"
+      ".compo-src"
     )! as HTMLImageElement;
 
     imageElement.src = this.url;
     imageElement.alt = this.title;
 
-    const titleSpan = element.querySelector(
-      ".image-compo__text"
-    )! as HTMLSpanElement;
+    const titleSpan = element.querySelector(".compo__text")! as HTMLSpanElement;
 
     titleSpan.innerText = this.title;
 
     const clone = document.importNode(template.content, true);
-    const delBtn = clone.querySelector(
-      ".image-compo__del-btn"
-    )! as HTMLButtonElement;
-    const imageComponent = clone.querySelector(".image-compo")! as HTMLElement;
+    const delBtn = clone.querySelector(".compo__del-btn")! as HTMLButtonElement;
+    const imageComponent = clone.querySelector(".url-compo")! as HTMLElement;
 
     delBtn.addEventListener("click", () => {
       imageComponent.remove();

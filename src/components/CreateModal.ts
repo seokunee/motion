@@ -37,6 +37,7 @@ class CreateModal {
 
     if (btnType == "note") {
       containSpan.innerText = "BODY";
+      addEvent.addNoteComponentMakeEvent();
     } else if (btnType == "image") {
       containSpan.innerText = "URL";
       addEvent.addImageComponentMakerEvent();
