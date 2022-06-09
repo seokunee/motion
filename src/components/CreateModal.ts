@@ -1,6 +1,6 @@
 import AddModalEvent from "./AddModalEvent.js";
 
-type ButtonType = "note" | "image" | "video" | "todo";
+export type ButtonType = "note" | "image" | "video" | "todo";
 
 class CreateModal {
   private main: HTMLElement;

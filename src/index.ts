@@ -1,34 +1,21 @@
-import CreateModal from "./components/CreateModal.js";
+import CreateModal, { ButtonType } from "./components/CreateModal.js";
 export class App {
   private createModal;
-  private imageBtn;
-  private noteBtn;
-  private todoBtn;
-  private videoBtn;
+  private createBtn;
 
   constructor() {
-    this.imageBtn = document.querySelector(".image_btn")! as HTMLButtonElement;
-    this.noteBtn = document.querySelector(".note_btn")! as HTMLButtonElement;
-    this.todoBtn = document.querySelector(".todo_btn")! as HTMLButtonElement;
-    this.videoBtn = document.querySelector(".video_btn")! as HTMLButtonElement;
+    this.createBtn = document.querySelectorAll(".create_btn");
 
+    this.createBtn.forEach((btnElement) => {
+      btnElement.addEventListener("click", (event) => {
+        let btnElement = event.currentTarget as HTMLElement;
+        this.createModal.createModal();
+        this.createModal.setTextandEvent(
+          btnElement.getAttribute("name") as ButtonType
+        );
+      });
+    });
     this.createModal = new CreateModal();
-    this.imageBtn.addEventListener("click", () => {
-      this.createModal.createModal();
-      this.createModal.setTextandEvent("image");
-    });
-    this.videoBtn.addEventListener("click", () => {
-      this.createModal.createModal();
-      this.createModal.setTextandEvent("video");
-    });
-    this.noteBtn.addEventListener("click", () => {
-      this.createModal.createModal();
-      this.createModal.setTextandEvent("note");
-    });
-    this.todoBtn.addEventListener("click", () => {
-      this.createModal.createModal();
-      this.createModal.setTextandEvent("todo");
-    });
   }
 }
 
