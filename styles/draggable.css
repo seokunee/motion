@@ -1,0 +1,12 @@
+.draggable {
+  cursor: move;
+}
+
+.dragging {
+  opacity: 0.5;
+}
+
+.dragenter {
+  transform: scale(1.01);
+  border: 1px solid rgb(255, 120, 120);
+}

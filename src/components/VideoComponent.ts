@@ -1,3 +1,5 @@
+import { addDragEventToLastElement } from "./dragEvent.js";
+
 class VideoComponent {
   private main: HTMLElement;
   private title: string;
@@ -12,10 +14,12 @@ class VideoComponent {
   createvideoComponent() {
     const template = document.createElement("template");
     template.innerHTML = `
-	  <section class="url-compo">
+	  <section class="url-compo draggable" draggable="true">
+    <div class="iframe_container">
 		<iframe id ="player" class="compo-src" title="YouTube video player" 
 		frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
-		 gyroscope; picture-in-picture" allowfullscreen></iframe>
+    gyroscope; picture-in-picture" a0llowfullscreen></iframe>
+    </div>
 	  <span class="compo__text"></span>
 	  <button class="compo__del-btn">X</button>
 	  </section>
@@ -40,6 +44,7 @@ class VideoComponent {
       videoComponent.remove();
     });
     this.main.appendChild(clone);
+    addDragEventToLastElement();
   }
 }
 

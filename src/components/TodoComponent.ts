@@ -1,3 +1,5 @@
+import { addDragEventToLastElement } from "./dragEvent.js";
+
 class TodoComponent {
   private main: HTMLElement;
   private title: string;
@@ -12,12 +14,12 @@ class TodoComponent {
   createTodoComponent() {
     const template = document.createElement("template");
     template.innerHTML = `
-		<section class="body-compo">
+		<section class="body-compo draggable" draggable="true">
 	  <div class="compo__info-container">
-		  <span class="compo__title"></span>
-		  <ul >
-		  	<li class="compo__body"></li>
-		  </ul>
+      <span class="compo__title"></span>
+      <ul >
+        <li class="compo__body"></li>
+      </ul>
 	  </div>
 		<button class="compo__del-btn">X</button>
 		</section>
@@ -41,6 +43,7 @@ class TodoComponent {
       imageComponent.remove();
     });
     this.main.appendChild(clone);
+    addDragEventToLastElement();
   }
 }
 

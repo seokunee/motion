@@ -1,4 +1,4 @@
-import ImageComponent from "./imageComponent.js";
+import ImageComponent from "./ImageComponent.js";
 import VideoComponent from "./VideoComponent.js";
 import NoteComponent from "./NoteComponent.js";
 import TodoComponent from "./TodoComponent.js";

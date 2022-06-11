@@ -1,3 +1,4 @@
+import { addDragEventToLastElement } from "./dragEvent.js";
 class ImageComponent {
   private main: HTMLElement;
   private title: string;
@@ -12,18 +13,19 @@ class ImageComponent {
   createImageComponent() {
     const template = document.createElement("template");
     template.innerHTML = `
-    <section class="url-compo">
-    <img
-    class="compo-src"
-    />
-    <span class="compo__text"></span>
-    <button class="compo__del-btn">X</button>
+    <section class="url-compo draggable" draggable="true">
+      <img
+      class="compo-image"
+      onerror="this.src='/public/image/init_image.jpeg';"
+      />
+      <span class="compo__text"></span>
+      <button class="compo__del-btn">X</button>
     </section>
     `;
     const element = template.content.firstElementChild! as HTMLElement;
 
     const imageElement = element.querySelector(
-      ".compo-src"
+      ".compo-image"
     )! as HTMLImageElement;
 
     imageElement.src = this.url;
@@ -41,6 +43,7 @@ class ImageComponent {
       imageComponent.remove();
     });
     this.main.appendChild(clone);
+    addDragEventToLastElement();
   }
 }
 

@@ -1,0 +1,31 @@
+@import "./colors.css";
+
+.body-compo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  height: 50%;
+  background-color: var(--modal-color);
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem 1rem;
+}
+
+.compo__info-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.compo__title {
+  width: 60%;
+  height: 100%;
+  font-weight: bold;
+  border-radius: 1rem 0 0 1rem;
+}
+
+.compo__body {
+  width: 40%;
+  height: 100%;
+  padding: 1rem;
+}

@@ -1,0 +1,38 @@
+@import "./colors.css";
+
+.url-compo {
+  display: flex;
+  align-items: center;
+  background-color: var(--content-color);
+  border-radius: 1rem;
+  width: 80%;
+  height: 30%;
+  margin-bottom: 2rem;
+}
+
+.iframe_container {
+  position: relative; /* absolute는 부모가 relative일 때 부모를 따라간다. */
+  width: 60%;
+  height: 100%;
+  padding-bottom: 56.25%;
+}
+
+.compo-src {
+  position: absolute;
+  width: 100%; /* 부모에 맞게 꽉 채운다. */
+  height: 100%;
+  border-radius: 1rem 0 0 1rem;
+}
+
+.compo-image {
+  width: 60%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem 0 0 1rem;
+}
+
+.compo__text {
+  width: 40%;
+  height: 100%;
+  padding: 1rem;
+}
